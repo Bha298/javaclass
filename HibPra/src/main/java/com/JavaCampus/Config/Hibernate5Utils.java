@@ -10,6 +10,8 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
 import com.JavaCampus.Entity.Student;
+import com.JavaCampus.mappings.OneToOneMapping.Customer_Nominee;
+import com.JavaCampus.mappings.OneToOneMapping.Customer_Policy;
 
 
 public class Hibernate5Utils {
@@ -37,8 +39,20 @@ public class Hibernate5Utils {
 				prop.put(Environment.SHOW_SQL, "true");
 				prop.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 				prop.put(Environment.HBM2DDL_AUTO, "update");
+				
+				//
+			//	prop.setProperty(" hibernate.connection.pool_size", "10");
+				//prop.setProperty(" hibernate.cache.use_second_level_cache", "true");
+				//prop.setProperty(" hibernate.cache.use_query_cache", "true");
+				//prop.setProperty(" cache.provider_class", "org.hibernate.cache.EhCacheProvider");
+				//prop.setProperty("hibernate.cache.region.factory_class" ,"org.hibernate.cache.ehcache.EhCacheRegionFactory");
+
+				
+				// add all the configured propes
 				cfg.addProperties(prop);
 				cfg.addAnnotatedClass(Student.class);
+				cfg.addAnnotatedClass(Customer_Policy.class);
+				cfg.addAnnotatedClass(Customer_Nominee.class);
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(cfg.getProperties()).build();
 

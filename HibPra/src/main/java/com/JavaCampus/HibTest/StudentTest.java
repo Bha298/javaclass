@@ -16,12 +16,19 @@ public class StudentTest {
 
 		Transaction tx = session.beginTransaction();
 
-		Student stu = new Student();
-		stu.setName("Prasanna");
+		Student stu = new Student(); // Fresh Created Object so that we can Tranient State
+		stu.setName("Sindhu");
 		stu.setCname("JavaFullstack");
 		stu.setAddress("Kadapa");
 
-		session.save(stu);
+		//Integer i = (Integer) session.save(stu);   // persist State
+		
+		/*
+		 * if(i>0) { System.out.println("Data hasbeen inserted...!"+i); }
+		 */
+		//session.persist(stu); // persist State
+		
+		session.saveOrUpdate(stu);
 		tx.commit();
 		session.close();
 

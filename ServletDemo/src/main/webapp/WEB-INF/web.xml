@@ -1,0 +1,41 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<!-- Configure MyServlet -->
+
+	<servlet>
+		<servlet-name>MyServlet</servlet-name>
+		<servlet-class>com.controller.MyServlet</servlet-class>
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MyServlet</servlet-name>
+		<url-pattern>/MyServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>LoginServlet12</servlet-name>
+		<servlet-class>com.controller.LoginServlet12</servlet-class>
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>LoginServlet12</servlet-name>
+		<url-pattern>/LoginServlet12</url-pattern>
+	</servlet-mapping>
+	
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/jsp/error.jsp</location>
+	</error-page>
+
+</web-app>
